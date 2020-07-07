@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            //top bar.............................................
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -37,6 +38,7 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 15.0,
             ),
+            //user name............................
             Text(
               'Hey ADIL,',
               style: kHeadingextStyle,
@@ -48,6 +50,8 @@ class HomePage extends StatelessWidget {
               'Find Courses you want to learn! ,',
               style: kSubHeadingextStyle,
             ),
+
+            //Search bar.........................................
             Container(
               padding: EdgeInsets.only(left: 20.0),
               margin: EdgeInsets.symmetric(vertical: 25.0),
@@ -60,7 +64,9 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   SvgPicture.asset('assets/icons/search.svg'),
-                  SizedBox(width: 20.0,),
+                  SizedBox(
+                    width: 20.0,
+                  ),
                   Text(
                     'Search Your Course',
                     style: TextStyle(
@@ -70,6 +76,20 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            //Categories and see all row.......................
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Categories',
+                  style: kTitleTextStyle,
+                ),
+                Text(
+                  'See All',
+                  style: kSubtitleTextStyle.copyWith(color: Colors.blueAccent),
+                ),
+              ],
             ),
           ],
         ),

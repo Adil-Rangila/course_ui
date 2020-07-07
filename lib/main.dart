@@ -1,6 +1,8 @@
 import 'package:course_ui/constants.dart';
+import 'package:course_ui/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
@@ -90,6 +92,27 @@ class HomePage extends StatelessWidget {
                   style: kSubtitleTextStyle.copyWith(color: Colors.blueAccent),
                 ),
               ],
+            ),
+            //bottom grid view with scrollable images.............
+            Expanded(
+              child: StaggeredGridView.countBuilder(
+                crossAxisCount: 2,
+                itemCount: categories.length,
+                crossAxisSpacing: 20.0,
+                mainAxisSpacing: 20.0,
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: index.isEven ? 200 : 240,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(categories[index].image),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(17.0)),
+                    child: null,
+                  );
+                },
+                staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+              ),
             ),
           ],
         ),

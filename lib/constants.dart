@@ -15,7 +15,6 @@ const kHeadingextStyle = TextStyle(
 const kSubHeadingextStyle = TextStyle(
   fontSize: 24,
   color: Color(0xFF61688B),
-  height: 2,
 );
 
 const kTitleTextStyle = TextStyle(

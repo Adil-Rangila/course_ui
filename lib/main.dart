@@ -1,4 +1,5 @@
 import 'package:course_ui/constants.dart';
+import 'package:course_ui/details_screen.dart';
 import 'package:course_ui/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Course UI',
-      home: HomePage(),
+      home: DetailsScreen(),
     );
   }
 }
@@ -102,13 +103,26 @@ class HomePage extends StatelessWidget {
                 mainAxisSpacing: 20.0,
                 itemBuilder: (context, index) {
                   return Container(
+                    padding: EdgeInsets.all(20.0),
                     height: index.isEven ? 200 : 240,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(categories[index].image),
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.circular(17.0)),
-                    child: null,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          categories[index].name,
+                          style: kTitleTextStyle.copyWith(fontSize: 16.0),
+                        ),
+                        Text(
+                          '${categories[index].numOfCourses} Courses',
+                          style: TextStyle(color: kTextColor.withOpacity(.7)),
+                        ),
+                      ],
+                    ),
                   );
                 },
                 staggeredTileBuilder: (index) => StaggeredTile.fit(1),
